@@ -1,4 +1,7 @@
 import tkinter as tk
+import time
+import webbrowser
+from tkinter import *
 
 
 
@@ -43,17 +46,38 @@ def create_window():
     window = tk.Toplevel(root)
     window.geometry("500x520")
 
-    
 
 
 def refresh():
     root
     print("Refreshed")
 
+
+
+
 #main window    
 root = tk.Tk()
 root.title("StrITwise: The Final Battle")
 root.geometry("400x420")
+time1 = ""
+clock = Label(root, font=("times", 25, "bold"), bg="white")
+clock.pack(fill=BOTH, expand=1)
+
+def tick():
+    global time1
+    # get the current local time from the PC
+    time2 = time.strftime("%H:%M:%S")
+    # if time string has changed, update it
+    if time2 != time1:
+        time1 = time2
+        clock.config(text=time2)
+        # calls itself every 200 milliseconds
+        # to update the time display as needed
+        # could use >200 ms, but display gets jerky
+    clock.after(200, tick)
+tick()
+
+
 #main window refresh button
 
 refresh = tk.Button(root, text="Refresh", command= refresh)
