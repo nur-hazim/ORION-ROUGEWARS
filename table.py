@@ -4,6 +4,7 @@ from tkinter.ttk import *
 
 team1list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
+
 class App(Frame):
 
     def __init__(self, parent):
@@ -17,13 +18,11 @@ class App(Frame):
 
     def CreateUI(self):
         tv = Treeview(self)
-        tv['columns'] = ('ranking', 'teammem', 'school', 'points')
-        tv.heading("#0", text='Sources', anchor='w')
-        tv.column("#0", anchor="w")
-        tv.heading('ranking', text='Ranking')
-        tv.column('ranking', anchor='center', width=100)
-        tv.heading('teammem', text='Team Member')
-        tv.column('teammem', anchor='center', width=100)
+        tv['columns'] = ('ranking', 'teamnum', 'school', 'points')
+        tv.heading("#0", 'ranking', text='Ranking')
+        tv.column("#0", anchor="center")
+        tv.heading('teamnum', text='Team Number')
+        tv.column('teamnum', anchor='center', width=100)
         tv.heading('school', text='School')
         tv.column('school', anchor='center', width=100)
         tv.heading('points', text='Points')
@@ -35,8 +34,8 @@ class App(Frame):
 
     def LoadTable(self):
         for i in team1list:
-            self.treeview.insert('', 'end', text="i", values=('10:00',
-                             '10:10', 'Ok'))
+            self.treeview.insert('', 'end', values=(i,
+                             'Team {}'.format(i), 'ALIBABA', '0'))
 
 def main():
     root = Tk()
