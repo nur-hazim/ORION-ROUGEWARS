@@ -2,7 +2,7 @@ import tkinter as tk
 import time
 import webbrowser
 from tkinter import *
-
+from table import table_results
 
 
 team1list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
@@ -42,8 +42,8 @@ def LoadTable(self):
                          '10:10', 'Ok'))'''
 
 
-def create_window():
-    window = tk.Toplevel(root)
+def create_result_window():
+    window = table_results()
     window.geometry("500x520")
 
 
@@ -89,7 +89,7 @@ Link = tk.Button(root, text="Google link")
 Link.pack()
 
 #main window result link
-NewWin = tk.Button(root, text="Result Page", command= create_window)
+NewWin = tk.Button(root, text="Result Page", command= create_result_window)
 NewWin.pack()
 
 
